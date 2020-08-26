@@ -1,0 +1,46 @@
+# .github/workflows/nodejs.yml
+
+# 此工作流程（workflow）的名字
+name: deploy to aliyun
+  
+# 触发 workflow 的事件
+on:
+  push:
+    branches:
+      - pages-source
+
+# workflow （工作流程）：持续集成一次运行的过程，就是一个 workflow。
+# job （任务）：一个 workflow 由一个或多个 jobs 构成，含义是一次持续集成的运行，可以完成多个任务。
+jobs:
+  # 一个job任务，任务名为build
+  build:
+    # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+    runs-on: ubuntu-latest  # 运行环境
+    # step（步骤）：每个 job 由多个 step 构成，一步步完成。
+    steps:
+      # action （动作）：每个 step 可以依次执行一个或多个命令（action）。
+      - name: Checkout Source
+        # 使用action库  actions/checkout获取源码
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js 12.x  
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+        
+      - name: Build Project # 此步骤（step）的名字
+        run: yarn && yarn build # 下载依赖和构建项目
+
+      - name: List output files
+        run: ls -a public # 显示生成的目录文件
+      
+      - name: Deploy Project
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: sftp://${{ secrets.SSH_HOST }}/home/handout # 服务器地址和端口（可以填域名，不过我服务器做了全站加速会导向加速结点的IP，所以只能用服务器的IP）
+          ftp-username: ${{ secrets.SSH_USERNAME }} # FTP用户名
+          ftp-password: ${{ secrets.SSH_PASSWORD }} # FTP密码
+          git-ftp-args: --insecure # （如果是FTP连接的话--insecure不用加）
+          local-dir: public/ # 选择哪些文件要部署到服务器，这个选项在这里选了之后，要在.git-ftp-include中添加相应的路径

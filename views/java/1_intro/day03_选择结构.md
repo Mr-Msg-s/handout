@@ -5,17 +5,16 @@ categories:
  - Java语法入门
 tags:
  - Java语法入门
- - 选择结构
 ---
 
 ::: tip
 
-作者：查老师(Charles7c)  
-原文：http://charles7c.gitee.io/handout/java/1_intro/day01_%E5%88%9D%E8%AF%86Java.html  
+作者：<a href="mailto:charles7c@126.com">查老师(Charles7c)</a>  
+原文：[《第三章 | 选择结构》](https://handout.muyoung.tech/views/java/1_intro/day03_选择结构.html)  
 本文为查老师原创文章，商业转载请联系作者获得授权，非商业转载请注明出处。  
 本文引用的内容，版权归原作者所有。如有侵权请务必邮件联系我，我会在收到邮件后24小时内进行删除！  
 
-强烈推荐阅读 [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
+在实践讲义内的练习时，如果遇到问题，强烈推荐阅读 《如何有效地报告 Bug》，更好的提问更容易获得帮助。
 
 :::
 

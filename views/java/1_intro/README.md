@@ -32,4 +32,5 @@ date: 2020-05-17
 ![yinyan_05](http://img.muyoung.tech/day01-1-1.jpg)
 
 ### 反馈交流
-如果在阅读学习中遇到什么问题，或者发现了什么不得了的Bug，可以在 码云上提 [Issues](https://gitee.com/Charles7c/handout/issues) ，或者给查老师发送邮件进行沟通charles7c@126.com
+如果在阅读学习中遇到什么问题，或者发现了什么不得了的Bug，可以在码云上提 [Issues](https://github.com/Charles7c/handout/issues)或者pr ，再不行可以给查老师发送<a href="mailto:charles7c@126.com">邮件</a>进行沟通。
+
